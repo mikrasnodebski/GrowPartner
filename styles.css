@@ -10,19 +10,44 @@ body {
     color: #333;
 }
 
+/* Navbar styling */
+.navbar {
+    background-color: #0A2633;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo img {
+    max-width: 150px;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar-menu li a:hover {
+    text-decoration: underline;
+}
+
 .container {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 20px auto; /* Adjusted for navbar */
     padding: 20px;
     text-align: center;
-}
-
-header .logo {
-    margin-bottom: 20px;
-}
-
-header .logo img {
-    max-width: 150px;
 }
 
 main h1 {
