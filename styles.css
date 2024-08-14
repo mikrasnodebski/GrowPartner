@@ -13,11 +13,18 @@ body {
 /* Navbar styling */
 .navbar {
     background-color: #0A2633;
-    padding: 15px 0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures the navbar stays on top */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,7 +52,7 @@ body {
 
 .container {
     max-width: 600px;
-    margin: 20px auto; /* Adjusted for navbar */
+    margin: 100px auto 20px; /* Adjusted for navbar */
     padding: 20px;
     text-align: center;
 }
