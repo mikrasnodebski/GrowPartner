@@ -28,7 +28,7 @@
       </div>
       <div class="div-block-3">
         <div class="form-block-2 w-form">
-          <form id="email-form" name="email-form" data-name="Email Form" method="post" data-netlify="true" class="form-5" data-wf-page-id="66bf46c0efe331e5f49668d8" data-wf-element-id="34af0f10-dcf8-ff2c-6141-8f6edefb6f82"><label for="name" class="field-label-6">Imię</label><input class="form-input w-input" maxlength="256" name="name-2" data-name="Name 2" placeholder="Imię" title="Please enter your name" type="text" id="name" required=""><label for="phone" class="field-label-7">Email</label><input class="form-input w-input" maxlength="256" name="phone" data-name="Phone" placeholder="Email kontaktowy" type="email" id="phone" required=""><label for="message" id="Field-2" class="field-label-7">Wiadomość</label><textarea id="message" name="field-2" maxlength="5000" data-name="Field 2" placeholder="Podaj treść" required="" class="textarea w-input"></textarea>
+          <form id="email-form" name="email-form" data-name="Email Form" action="POST" method="POST" data-netlify="true" class="form-5" data-wf-page-id="66bf46c0efe331e5f49668d8" data-wf-element-id="34af0f10-dcf8-ff2c-6141-8f6edefb6f82"><label for="name" class="field-label-6">Imię</label><input class="form-input w-input" maxlength="256" name="name-2" data-name="Name 2" placeholder="Imię" title="Please enter your name" type="text" id="name" required=""><label for="phone" class="field-label-7">Email</label><input class="form-input w-input" maxlength="256" name="phone" data-name="Phone" placeholder="Email kontaktowy" type="email" id="phone" required=""><label for="message" id="Field-2" class="field-label-7">Wiadomość</label><textarea id="message" name="field-2" maxlength="5000" data-name="Field 2" placeholder="Podaj treść" required="" class="textarea w-input"></textarea>
             <div class="div-block-86">
               <div class="text-block-20">Twoje dane osobowe będą przetwarzane w celu obsługi przesłanego zapytania. Szczegóły w <a href="polityka-prywatnosci.html" class="link-from"><span class="text-span-3">Polityce Prywatności.</span></a>
               </div>
@@ -50,30 +50,35 @@
     <script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  var form = document.querySelector('#download-form'); // Zmień na specyficzny selektor, jeśli to konieczne
-
+  var form = document.querySelector('#download-form'); // Możesz użyć konkretnego selektora np. #myForm
+  
   form.addEventListener('submit', function (event) {
-    event.preventDefault(); // Zapobiega przekierowaniu
-    var formData = new FormData(form); // Pobierz dane z formularza
+    event.preventDefault(); // Zapobiega domyślnej akcji
+
+    var formData = new FormData(form);
 
     fetch(form.action, {
       method: 'POST',
       body: new URLSearchParams(formData)
     })
-      .then(function(response) {
-        if (response.ok) {
-          document.querySelector('.w-form-done').style.display = 'block'; // Pokaż customową success message
-          document.querySelector('.w-form-fail').style.display = 'none'; // Ukryj wiadomość błędu (jeśli widoczna)
-          form.style.display = 'none'; // Ukryj formularz po wysłaniu
-        } else {
-          document.querySelector('.w-form-fail').style.display = 'block'; // Pokaż error message w razie błędu
-        }
-      })
-      .catch(function(error) {
-        document.querySelector('.w-form-fail').style.display = 'block'; // Pokaż error message w razie błędu
-      });
+    .then(response => {
+      if (response.ok) {
+        // Pokaż wiadomość sukcesu
+        document.querySelector('.w-form-done').style.display = 'block';
+        // Ukryj formularz po wysłaniu
+        form.style.display = 'none';
+      } else {
+        // Pokaż wiadomość błędu
+        document.querySelector('.w-form-fail').style.display = 'block';
+      }
+    })
+    .catch(error => {
+      // Pokaż wiadomość błędu w przypadku niepowodzenia
+      document.querySelector('.w-form-fail').style.display = 'block';
+    });
   });
 });
+
 </script>
 
 </script>
