@@ -50,10 +50,10 @@
     <script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  var form = document.querySelector('#download-form'); // Możesz użyć konkretnego selektora np. #myForm
+  var form = document.querySelector('#email-form'); // Użyj poprawnego selektora formularza
   
   form.addEventListener('submit', function (event) {
-    event.preventDefault(); // Zapobiega domyślnej akcji
+    event.preventDefault(); // Zapobiega domyślnej akcji i przekierowaniu
 
     var formData = new FormData(form);
 
@@ -78,8 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
-
 </script>
+
 
 </script>
 
