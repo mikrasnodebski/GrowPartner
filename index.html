@@ -71,11 +71,14 @@
     
     form.addEventListener('submit', function (event) {
       event.preventDefault(); // Zapobiega domyślnej akcji i przekierowaniu
-      
+
       var formData = new FormData(form);
       
       // Ukryj wszystkie wiadomości przed wysłaniem formularza
       document.querySelector('.w-form-done').style.display = 'none';
+      document.querySelector('.w-form-fail').style.display = 'none';
+
+      // Ukryj wiadomość błędu przed wysłaniem
       document.querySelector('.w-form-fail').style.display = 'none';
 
       fetch("/", {
@@ -86,6 +89,7 @@
       .then(response => {
         if (response.ok) {
           // Pokaż wiadomość sukcesu
+          document.querySelector('.w-form-fail').style.display = 'none';
           document.querySelector('.w-form-done').style.display = 'block';
           // Ukryj formularz po wysłaniu
           form.style.display = 'none';
