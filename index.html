@@ -71,9 +71,9 @@
     
     form.addEventListener('submit', function (event) {
       event.preventDefault(); // Zapobiega domyślnej akcji i przekierowaniu
-
+      
       var formData = new FormData(form);
-
+      
       // Ukryj wszystkie wiadomości przed wysłaniem formularza
       document.querySelector('.w-form-done').style.display = 'none';
       document.querySelector('.w-form-fail').style.display = 'none';
@@ -90,7 +90,8 @@
           // Ukryj formularz po wysłaniu
           form.style.display = 'none';
         } else {
-          throw new Error('Response not OK'); // Rzuć błąd, jeśli odpowiedź nie jest ok
+          // Pokaż wiadomość błędu
+          document.querySelector('.w-form-fail').style.display = 'block';
         }
       })
       .catch(error => {
@@ -100,6 +101,7 @@
     });
   });
 </script>
+
 
 </body>
 </html>
